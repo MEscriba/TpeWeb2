@@ -1,6 +1,5 @@
 <?php
-require_once 'app/models/admin.php';
-require_once 'app/models/teams.php';
+require_once 'app/models/asociations.php';
 require_once 'app/models/umpires.php';
 require_once 'app/views/matchview.php';
 require_once 'helpers/auht.helper.php';
@@ -15,7 +14,7 @@ class AsociationController {
 
     public function __construct() {
         $this->model_umpire = new UmpireModel();
-        $this->model_team = new TeamModel();
+        $this->model_team = new AsociationModel();
         $this->view = new MatchView();
         $this->helper = new AuthHelper();
         $this->authview = new AuthView();

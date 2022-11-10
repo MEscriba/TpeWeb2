@@ -1,8 +1,7 @@
 <?php
 require_once './app/views/matchview.php';
 require_once './app/views/auth.view.php';
-require_once './app/models/admin.php';
-require_once './app/models/teams.php';
+require_once './app/models/asociations.php';
 require_once './app/models/umpires.php';
 require_once './app/models/user.model.php';
 require_once './helpers/auht.helper.php';
@@ -10,12 +9,12 @@ require_once './helpers/auht.helper.php';
 class AuthController {
     private $view;
     private $model;
-    private $authHelper;
+    private $helper;
         
     public function __construct() {
         $this->model = new UserModel();
         $this->view = new AuthView();
-        $this->authHelper = new authHelper();
+        $this->helper = new AuthHelper();
         
     }
 
