@@ -22,6 +22,15 @@ class UmpireModel {
         
         return $umpires;
     }
+    function getUmpire($id)
+    {
+        //pido un arbitro
+        $query = $this->db->prepare("SELECT manga.*, genero.nombre, genero.id_genero FROM arbitros INNER JOIN genero ON manga.id_genero_fk=genero.id_genero WHERE manga.id=$id");
+        $query->execute();
+
+        $umpire = $query->fetch(PDO::FETCH_OBJ);
+        return $umpire;
+    }
     /**
      * Inserta el arbitro en la base de datos.
      */

@@ -18,8 +18,8 @@ class MatchView {
     }
     public function showTeams($teams) {
         // asigno variables al tpl smarty
+        /*  $this->smarty->assign('umpires', $umpires); //esto es para el select del form lo comente por si me sirve luego*/
         $this->smarty->assign('teams', $teams); 
-    
         // mostrar el tpl
         $this->smarty->display('teams.tpl');
                 
@@ -27,18 +27,17 @@ class MatchView {
     public function showUmpires($umpires) {
         // asigno variables al tpl smarty
         $this->smarty->assign('umpires', $umpires);  
-    
+        
         // mostrar el tpl
         $this->smarty->display('umpires.tpl');
                 
     }
-    public function showMatchs($umpires, $teams) {
-        // asigno variables al tpl smarty
-        $this->smarty->assign('umpires', $umpires); 
-        $this->smarty->assign('teams', $teams); 
-        // mostrar el tpl
-        $this->smarty->display('matchs.tpl');
-                
+    function showUmpire($umpires, $teams)
+    {
+        $this->smarty->assign('teams', $teams);
+        $this->smarty->assign('umpires', $umpires); //esto es para el select del form 
+
+        $this->smarty->display('itemUmpire.tpl');
     }
     //este es el de caetano
     public function showEditFormTeam($id){
@@ -50,6 +49,24 @@ class MatchView {
         $this->smarty->assign('umpires', $umpires);
         $this->smarty->display('umpires.tpl');
     }
+    function showError($error)
+    {
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('error.tpl');
+    }
+    function listMangasFromThisGenre($mangas){    
+        $this->smarty->assign('mangas', $mangas);
+        $this->smarty->display('mangasFromGenre.tpl'); 
+
+    }
 }
 
  
+/*  public function showMatchs($umpires, $teams) {
+     // asigno variables al tpl smarty
+     $this->smarty->assign('umpires', $umpires); 
+     $this->smarty->assign('teams', $teams); 
+     // mostrar el tpl
+     $this->smarty->display('matchs.tpl');
+             
+ } */
