@@ -26,21 +26,6 @@
     <button type="submit" class="btn btn-primary mt-2">Agregar</button>
 </form>
 
-<span>ver todos los arbitros de la region: </span>
-<select>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="show" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-        <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
-        </div>
-    </li>
-</select>
-
-
 <!-- lista de arbitros -->
 <ul class="list-group">
     {foreach from=$umpires item=$umpire}
@@ -53,4 +38,4 @@
         </li>
     {/foreach}
 </ul>
-<p class="mt-3"><small>Mostrando arbitros disponibles</small></p>
+<p class="mt-3"><small>Mostrando arbitros disponibles - si no puede verlos debe loguearse</small></p>

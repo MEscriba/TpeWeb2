@@ -58,4 +58,3 @@ class UmpireModel {
         return $umpires;
     }
 }
-

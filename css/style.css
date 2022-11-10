@@ -1,5 +1,7 @@
 
-.list-total {
-    display:flex;
-    justify-content: space-around;
+
+ .list-total {
+   display:flex;
+    justify-content: space-evenly;
 }
+

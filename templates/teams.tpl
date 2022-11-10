@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+
 <!-- formulario de alta de equipos -->
 <form action="add-team" method="POST" class="my-4">
     <div class="row">
@@ -28,7 +29,7 @@
 
 </form>
 <!-- lista de equipos -->
-{if !isset ($smarty.session.USER_ID)}
+
 <ul class="list-group">
     {foreach from=$teams item=$team}
         <li class='list-group-item d-flex justify-content-between align-items-center'>
@@ -37,12 +38,11 @@
                 <a href='show-umpires-by-asoc/{$team->id}' type='button' class='btn btn-secondary'>ver</a>
                 <a href='show-edit-team/{$team->id}' type='button' class='btn btn-secondary'>Editar</a>
                 <a href='delete-team/{$team->id}' type='button' class='btn btn-danger'>Borrar</a>
-            </div>    
+            </div> 
         </li>
-    {/foreach}
+    {/foreach}     
 </ul>
-{/if}
 
-<p class="mt-3"><small>Mostrando equipos disponibles</small></p>
+<p class="mt-3"><small>Mostrando equipos disponibles - si no puede verlos debe loguearse</small></p>
 
 {include file="footer.tpl"}

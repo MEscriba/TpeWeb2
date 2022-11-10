@@ -27,7 +27,7 @@ class AdminModel {
      * Inserta una equipo en la base de datos.
      */
     public function insertTeam($nombre, $asociacion, $region) {
-        $query = $this->db->prepare("INSERT INTO equipos (nombre, asociacion, region) VALUES (?, ?, ?)");
+        $query = $this->db->prepare("INSERT INTO asociaciones (nombre, asociacion, region) VALUES (?, ?, ?)");
         $query->execute([$nombre, $asociacion, $region]);
 
         return $this->db->lastInsertId();
@@ -36,7 +36,7 @@ class AdminModel {
      * Elimina una equipo dado su id.
      */
     function deleteTeamById($id) {
-        $query = $this->db->prepare('DELETE FROM equipos WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM asociaciones WHERE id = ?');
         $query->execute([$id]);
     }
 }

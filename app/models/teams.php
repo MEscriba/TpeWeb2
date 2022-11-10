@@ -16,7 +16,7 @@ class TeamModel {
         // ya esta abierta por el constructor de la clase
 
         // 2. ejecuto la sentencia (2 subpasos)
-        $query = $this->db->prepare("SELECT * FROM equipos");
+        $query = $this->db->prepare("SELECT * FROM asociaciones");
         $query->execute();
 
         // 3. obtengo los resultados
@@ -28,7 +28,7 @@ class TeamModel {
      * Inserta una equipo en la base de datos.
      */
     public function insertTeam($equipo, $asociacion, $region) {
-        $query = $this->db->prepare("INSERT INTO equipos (equipo, asociacion, region) VALUES (?, ?, ?)");
+        $query = $this->db->prepare("INSERT INTO asociaciones (equipo, asociacion, region) VALUES (?, ?, ?)");
         $query->execute([$equipo, $asociacion, $region]);
 
         return $this->db->lastInsertId();
@@ -38,12 +38,12 @@ class TeamModel {
      * Elimina un equipo dado su id.
      */
     function deleteTeamById($id) {
-        $query = $this->db->prepare('DELETE FROM equipos WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM asociaciones WHERE id = ?');
         $query->execute([$id]);
     }
 
     public function editTeam($equipo,$asociacion,$region,$id){
-        $query = $this->db->prepare("UPDATE equipos SET equipo=?, asociacion=?, region=? WHERE id=?");
+        $query = $this->db->prepare("UPDATE asociaciones SET equipo=?, asociacion=?, region=? WHERE id=?");
         $query->execute([$equipo,$asociacion,$region,$id]);
         $teams = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
         

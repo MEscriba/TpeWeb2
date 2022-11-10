@@ -3,7 +3,7 @@ require_once 'app/models/admin.php';
 require_once 'app/models/teams.php';
 require_once 'app/models/umpires.php';
 require_once 'app/views/matchview.php';
-//require_once "helpers/authHelper.php";
+require_once 'helpers/auht.helper.php';
 
 
 class MatchController {
