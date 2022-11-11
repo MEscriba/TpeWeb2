@@ -29,7 +29,7 @@
                     <a class="nav-link" aria-current="page" href="list-umpires">Arbitros</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="list-teams">Asociaciones</a>
+                    <a class="nav-link" aria-current="page" href="list-asociations">Asociaciones</a>
                   </li>
                   {if !isset($smarty.session.USER_ID)}
                     <li class="nav-item">

@@ -18,13 +18,13 @@
     
     <!-- lista de equipos -->
     <ul class="list-group">
-        <p class="mt-3">Equipos</p>
-        {foreach from=$teams item=$team}
+        <p class="mt-3">Asociaciones</p>
+        {foreach from=$asociations item=$asociation}
             <li class='list-group-item d-flex justify-content-between align-items-center'>
-                <a href='list-teams'><span> <b>{$team->equipo}</b></span></a>
+                <a href='list-asociations'><span> <b>{$asociation->asociacion}</b></span></a>
             </li>
         {/foreach}
-        <p class="mt-3"><small>Mostrando equipos disponibles</small></p>
+        <p class="mt-3"><small>Mostrando todas las asociaciones</small></p>
     </ul>  
 </div>
 {include file="footer.tpl"}

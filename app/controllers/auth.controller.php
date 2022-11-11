@@ -1,5 +1,5 @@
 <?php
-require_once './app/views/matchview.php';
+require_once './app/views/general.view.php';
 require_once './app/views/auth.view.php';
 require_once './app/models/asociations.php';
 require_once './app/models/umpires.php';
@@ -32,7 +32,6 @@ class AuthController {
         $user = $this->model->getUserByEmail($email);
 
         // verifico que el usuario existe y que las contraseñas son iguales
-        //se deberia hacer con el password_verify para chequear el hash pero no me funciono
         if ( $user && password_verify($password, ($user->password))) {
                     // inicio una session para este usuario
             session_start();

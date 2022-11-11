@@ -11,7 +11,7 @@ class AsociationModel {
     /**
      * Devuelve la lista de equipos completa.
      */
-    public function getAllTeams() {
+    public function getAllAsociations() {
         // 1. abro conexión a la DB
         // ya esta abierta por el constructor de la clase
 
@@ -20,16 +20,16 @@ class AsociationModel {
         $query->execute();
 
         // 3. obtengo los resultados
-        $teams = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+        $asociations = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
         
-        return $teams;
+        return $asociations;
     }
     /**
      * Inserta una equipo en la base de datos.
      */
-    public function insertTeam($equipo, $asociacion, $region) {
-        $query = $this->db->prepare("INSERT INTO asociaciones (equipo, asociacion, region) VALUES (?, ?, ?)");
-        $query->execute([$equipo, $asociacion, $region]);
+    public function insertAsociation($asociacion, $region) {
+        $query = $this->db->prepare("INSERT INTO asociaciones (asociacion, region) VALUES (?, ?)");
+        $query->execute([$asociacion, $region]);
 
         return $this->db->lastInsertId();
     }
@@ -37,17 +37,17 @@ class AsociationModel {
     /**
      * Elimina un equipo dado su id.
      */
-    function deleteTeamById($id) {
-        $query = $this->db->prepare('DELETE FROM asociaciones WHERE id = ?');
+    function deleteAsociationById($id) {
+        $query = $this->db->prepare('DELETE FROM asociaciones WHERE id_asociacion= ?');
         $query->execute([$id]);
     }
 
-    public function editTeam($equipo,$asociacion,$region,$id){
-        $query = $this->db->prepare("UPDATE asociaciones SET equipo=?, asociacion=?, region=? WHERE id=?");
-        $query->execute([$equipo,$asociacion,$region,$id]);
-        $teams = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+    public function editAsociation($asociacion,$region,$id){
+        $query = $this->db->prepare("UPDATE asociaciones SET asociacion=?, region=? WHERE id_asociacion=?");
+        $query->execute([$asociacion,$region,$id]);
+        $asociations = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
         
-        return $teams;
+        return $asociations;
     }
     
 }

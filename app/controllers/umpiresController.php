@@ -2,28 +2,28 @@
 
 require_once 'app/models/asociations.php';
 require_once 'app/models/umpires.php';
-require_once 'app/views/matchview.php';
+require_once 'app/views/general.view.php';
 require_once 'app/views/auth.view.php';
 require_once 'helpers/auht.helper.php';
 
 class UmpireController {
     private $model_umpire;
-    private $model_team;
+    private $model_asociation;
     private $view;
     private $authview;
     private $helper;
 
     public function __construct() {
         $this->model_umpire = new UmpireModel();
-        $this->model_team = new AsociationModel();
-        $this->view = new MatchView();
+        $this->model_asociation = new AsociationModel();
+        $this->view = new GeneralView();
         $this->authview = new AuthView();
         $this->helper = new AuthHelper();
     }
     public function showComplete() {
         $umpires = $this->model_umpire->getAllUmpires();
-        $teams = $this->model_team->getAllTeams();
-        $this->view->showComplete($umpires, $teams);
+        $asociations = $this->model_asociation->getAllAsociations();
+        $this->view->showComplete($umpires, $asociations);
     }
 
     function showUmpires() {
@@ -35,9 +35,9 @@ class UmpireController {
     {
         $this->helper->checkLoggedIn();
         $umpires = $this->model_umpire->getUmpire($id);
-        $teams = $this->model_team->getAllTeams();
+        $asociations = $this->model_asociation->getAllAsociations();
 
-        $this->view->showUmpire($umpires, $teams);
+        $this->view->showUmpire($umpires, $asociations);
     }
     public function showEditFormUmpire($id){
         $this->helper->checkLoggedIn();

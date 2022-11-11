@@ -1,27 +1,27 @@
 <?php
 require_once './libs/smarty-master/libs/Smarty.class.php';
 
-class MatchView {
+class GeneralView {
     private $smarty;
 
     public function __construct() {
         $this->smarty = new Smarty(); // inicializo Smarty
     }
 
-    public function showComplete($umpires, $teams) {
+    public function showComplete($umpires, $asociations) {
         // asigno variables al tpl smarty
         $this->smarty->assign('umpires', $umpires); 
-        $this->smarty->assign('teams', $teams); 
+        $this->smarty->assign('asociations', $asociations); 
         // mostrar el tpl
         $this->smarty->display('home.tpl');
                 
     }
-    public function showTeams($teams) {
+    public function showAsociations($asociations) {
         // asigno variables al tpl smarty
         /*  $this->smarty->assign('umpires', $umpires); //esto es para el select del form lo comente por si me sirve luego*/
-        $this->smarty->assign('teams', $teams); 
+        $this->smarty->assign('asociations', $asociations); 
         // mostrar el tpl
-        $this->smarty->display('teams.tpl');
+        $this->smarty->display('asociations.tpl');
                 
     }
     public function showUmpires($umpires) {
@@ -32,9 +32,9 @@ class MatchView {
         $this->smarty->display('umpires.tpl');
                 
     }
-    function showUmpire($umpires, $teams)
+    function showUmpire($umpires, $asociations)
     {
-        $this->smarty->assign('teams', $teams);
+        $this->smarty->assign('asociations', $asociations);
         $this->smarty->assign('umpires', $umpires); //esto es para el select del form 
 
         $this->smarty->display('itemUmpire.tpl');
@@ -42,7 +42,7 @@ class MatchView {
     //este es el de caetano
     public function showEditFormTeam($id){
         $this->smarty->assign('id', $id);
-        $this->smarty->display('formTeam.tpl');
+        $this->smarty->display('formAsociation.tpl');
 
     }
     public function showUmpireByAsoc($umpires){
@@ -62,11 +62,4 @@ class MatchView {
 }
 
  
-/*  public function showMatchs($umpires, $teams) {
-     // asigno variables al tpl smarty
-     $this->smarty->assign('umpires', $umpires); 
-     $this->smarty->assign('teams', $teams); 
-     // mostrar el tpl
-     $this->smarty->display('matchs.tpl');
-             
- } */
+

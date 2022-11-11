@@ -29,57 +29,56 @@ switch ($params[0]) {
         $authController->logout();
         break;    
     case 'home':
-        $matchController = new UmpireController();
-        $matchController->showComplete();
-        break;
-    case 'list-teams':
-        $matchController = new AsociationController();
-        $matchController->showTeams();
+        $umpireController = new UmpireController();
+        $umpireController->showComplete();
         break;
     case 'list-umpires':
-        $matchController = new UmpireController();
-        $matchController->showUmpires();
+        $umpireController = new UmpireController();
+        $umpireController->showUmpires();
         break;
     case 'add':
-        $admController = new UmpireController();
-        $admController->addUmpire();
-        break;
-    case 'add-team':
-        $admController = new AsociationController();
-        $admController->addTeam();
+        $umpireController = new UmpireController();
+        $umpireController->addUmpire();
         break;
     case 'delete':
-        $admController = new UmpireController();
+        $umpireController = new UmpireController();
         // obtengo el parametro de la acción
         $id = $params[1];
-        $admController->deleteUmpire($id);
-        break;
-    case 'delete-team':
-        $admController = new AsociationController();
-        // obtengo el parametro de la acción
-        $id = $params[1];
-        $admController->deleteTeam($id);
-        break;
-    //esta esta en fase de prueba aun no me anda
-    case 'edit-team':
-        $admController = new AsociationController();
-        $admController -> EditTeam($params[1]);
-        break;
-    case 'show-edit-team':
-        $admController = new AsociationController();
-        $admController->showEditFormTeam($params[1]);
-        break;
-    case 'show':// mostrar arbitros con params 1
-        $matchController = new AsociationController();
-        $matchController -> showUmpireByAsoc($params[1]);
+        $umpireController->deleteUmpire($id);
         break;
     case 'edit-umpire':
-        $admController = new UmpireController();
-        $admController -> EditUmpire($params[1]);
+        $umpireController = new UmpireController();
+        $umpireController -> EditUmpire($params[1]);
         break;
     case 'show-edit-umpire':
-        $admController = new UmpireController();
-        $admController->showEditFormUmpire($params[1]);
+        $umpireController = new UmpireController();
+        $umpireController->showEditFormUmpire($params[1]);
+        break;
+    case 'show':// mostrar arbitros con params 1 funciona pero hay que chequearlo bien
+        $asociationController = new AsociationController();
+        $asociationController -> showUmpireByAsoc($params[1]);
+        break;
+    case 'list-asociations':
+        $asociationController = new AsociationController();
+        $asociationController-> showasociations();
+        break;
+    case 'add-asociation':
+        $asociationController = new AsociationController();
+        $asociationController->addAsociation();
+        break;
+    case 'delete-asociation':
+        $asociationController = new AsociationController();
+        // obtengo el parametro de la acción
+        $id = $params[1];
+        $asociationController->deleteAsociation($id);
+        break;
+    case 'edit-asociation':
+        $asociationController = new AsociationController();
+        $asociationController -> EditAsociation($params[1]);
+        break;
+    case 'show-edit-asociation':
+        $asociationController = new AsociationController();
+        $asociationController->showEditFormTeam($params[1]);
         break;
     default:
         echo('404 Page not found');
