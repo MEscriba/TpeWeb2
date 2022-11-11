@@ -37,6 +37,6 @@
     {/foreach}     
 </ul>
 
-<p class="mt-3"><small>Mostrando equipos disponibles - si no puede verlos debe loguearse</small></p>
+<p class="mt-3"><small>Mostrando asociaciones disponibles </small></p>
 
 {include file="footer.tpl"}

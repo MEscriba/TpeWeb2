@@ -25,12 +25,7 @@ class AsociationController {
         $asociations = $this->model_asociation->getAllAsociations();
         $this->view->showAsociations($asociations);
     }
-    //ver si esto esta ok?
-    public function showUmpireByAsoc($region){
-        $umpires = $this->model_umpire->showUmpireByAsoc($region);
-        $this->view->showUmpireByAsoc($umpires); 
-    } 
-    
+     
               
     function addAsociation() {
         $this->helper->checkLoggedIn();        

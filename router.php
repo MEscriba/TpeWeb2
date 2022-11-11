@@ -55,8 +55,8 @@ switch ($params[0]) {
         $umpireController->showEditFormUmpire($params[1]);
         break;
     case 'show':// mostrar arbitros con params 1 funciona pero hay que chequearlo bien
-        $asociationController = new AsociationController();
-        $asociationController -> showUmpireByAsoc($params[1]);
+        $umpireController = new UmpireController();;
+        $umpireController -> getUmpiresByAsoc($params[1]);
         break;
     case 'list-asociations':
         $asociationController = new AsociationController();

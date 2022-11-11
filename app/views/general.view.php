@@ -18,16 +18,15 @@ class GeneralView {
     }
     public function showAsociations($asociations) {
         // asigno variables al tpl smarty
-        /*  $this->smarty->assign('umpires', $umpires); //esto es para el select del form lo comente por si me sirve luego*/
         $this->smarty->assign('asociations', $asociations); 
         // mostrar el tpl
         $this->smarty->display('asociations.tpl');
                 
     }
-    public function showUmpires($umpires) {
+    public function showUmpires($umpires, $asociations) {
         // asigno variables al tpl smarty
         $this->smarty->assign('umpires', $umpires);  
-        
+        $this->smarty->assign('asociations', $asociations);
         // mostrar el tpl
         $this->smarty->display('umpires.tpl');
                 
@@ -39,12 +38,7 @@ class GeneralView {
 
         $this->smarty->display('itemUmpire.tpl');
     }
-    //este es el de caetano
-    public function showEditFormTeam($id){
-        $this->smarty->assign('id', $id);
-        $this->smarty->display('formAsociation.tpl');
-
-    }
+    
     public function showUmpireByAsoc($umpires){
         $this->smarty->assign('umpires', $umpires);
         $this->smarty->display('umpires.tpl');
@@ -54,11 +48,7 @@ class GeneralView {
         $this->smarty->assign('error', $error);
         $this->smarty->display('error.tpl');
     }
-    function listMangasFromThisGenre($mangas){    
-        $this->smarty->assign('mangas', $mangas);
-        $this->smarty->display('mangasFromGenre.tpl'); 
-
-    }
+   
 }
 
  

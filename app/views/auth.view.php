@@ -16,8 +16,8 @@ class AuthView {
         $this->smarty->assign("id", $id);
         $this->smarty->display('formUmpire.tpl');
     }
-    public function showEditFormTeam($id){
+    public function showEditFormAsociation($id){
         $this->smarty->assign("id", $id);
-        $this->smarty->display('formTeam.tpl');
+        $this->smarty->display('formAsociation.tpl');
     }
 }

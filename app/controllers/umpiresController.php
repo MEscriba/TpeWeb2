@@ -28,34 +28,27 @@ class UmpireController {
 
     function showUmpires() {
         $umpires = $this->model_umpire->getAllUmpires();
-        $this->view->showUmpires($umpires);
+        $asociations = $this ->model_asociation->getAllAsociations();
+        $this->view->showUmpires($umpires, $asociations);
     }
    
-    public function showUmpirebyId($id)
-    {
-        $this->helper->checkLoggedIn();
-        $umpires = $this->model_umpire->getUmpire($id);
-        $asociations = $this->model_asociation->getAllAsociations();
-
-        $this->view->showUmpire($umpires, $asociations);
-    }
     public function showEditFormUmpire($id){
         $this->helper->checkLoggedIn();
         $this->authview->showEditFormUmpire($id);
-    }
+     }
 
     function addUmpire() {
         $this->helper->checkLoggedIn();
         // validar entrada de datos
         $arbitro = $_POST['arbitro'];
-        $asociacion = $_POST['asociacion'];
-        $region = $_POST['region'];
-        if (empty($arbitro) || empty($asociacion) || empty($region)) {
+        $residencia = $_POST['residencia'];
+        $id_asociacion = $_POST['id_asociacion'];
+        if (empty($arbitro) || empty($residencia) || empty($id_asociacion)) {
             $this->view->showError(array("Hay campos vacios.", "Por favor complete los campos obligatorios para poder agregarlo.",  "showUmpires"));
             die();
         }
 
-        $id = $this->model_umpire->insertUmpire($arbitro, $asociacion, $region);
+        $id = $this->model_umpire->insertUmpire($arbitro, $residencia, $id_asociacion);
         
         header("Location: " . BASE_URL . "list-umpires"); 
     }
@@ -72,12 +65,25 @@ class UmpireController {
         $this->helper->checkLoggedIn();
         if ((!empty($_POST))) {
             $arbitro = $_POST['arbitro'];
-            $asociacion = $_POST['asociacion'];
-            $region = $_POST['region'];
-            $this->model_umpire->editUmpire($arbitro, $asociacion, $region, $id);
+            $residencia = $_POST['residencia'];
+            $id_asociacion = $_POST['id_asociacion'];
+            $this->model_umpire->editUmpire($arbitro, $residencia, $id_asociacion, $id);
             header("Location: " . BASE_URL . "list-umpires"); 
         }      
     }
-
+    //ver si esto esta ok?
+    public function getUmpiresByAsoc($asociacion){
+        $umpires = $this->model_umpire->getUmpiresByAsoc($asociacion);
+        $this->view->getUmpiresByAsoc($umpires); 
+    } 
    
 }
+   /* veri si se necesita o esta bien-----------------------------
+    public function showUmpirebyId($id)
+    {
+        $this->helper->checkLoggedIn();
+        $umpires = $this->model_umpire->getUmpire($id);
+        $asociations = $this->model_asociation->getAllAsociations();
+
+        $this->view->showUmpire($umpires, $asociations);
+    } */

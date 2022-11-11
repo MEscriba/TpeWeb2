@@ -16,7 +16,7 @@
           <a href="https://www.cahockey.org.ar/"><img src="./images/logo_confe.jpg" class="card-img-top" alt="logo confederacion argentina de hockey"></a>
           </div>
             <div class="container-fluid">
-              <a class="navbar-brand" href="home">Torneo regional de selecciones sub 19</a>
+              <a class="navbar-brand" href="home">Coordinacion de arbitros</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
