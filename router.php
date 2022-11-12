@@ -48,7 +48,7 @@ switch ($params[0]) {
         break;
     case 'edit-umpire':
         $umpireController = new UmpireController();
-        $umpireController -> EditUmpire($params[1]);
+        $umpireController->EditUmpire($params[1]);
         break;
     case 'show-edit-umpire':
         $umpireController = new UmpireController();

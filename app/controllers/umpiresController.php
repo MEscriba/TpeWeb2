@@ -34,7 +34,8 @@ class UmpireController {
    
     public function showEditFormUmpire($id){
         $this->helper->checkLoggedIn();
-        $this->authview->showEditFormUmpire($id);
+        $asociations = $this ->model_asociation->getAllAsociations();//ahi traje el parametro de las asociaciones para que me figuren en el selec
+        $this->authview->showEditFormUmpire($id, $asociations); //del form de editar 
      }
 
     function addUmpire() {
@@ -48,7 +49,7 @@ class UmpireController {
             die();
         }
 
-        $id = $this->model_umpire->insertUmpire($arbitro, $residencia, $id_asociacion);
+        $this->model_umpire->insertUmpire($arbitro, $residencia, $id_asociacion);
         
         header("Location: " . BASE_URL . "list-umpires"); 
     }

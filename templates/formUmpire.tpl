@@ -20,7 +20,7 @@
                     <label>Asociacion</label>
                         <select name="id_asociacion"class="form-select" aria-label="Disabled select example">            
                            {foreach from=$asociations item=$asociation}
-                              <option value="{$asociation->id_asociacion}" selected>{$asociation->asociacion}</option>
+                              <option value="{$asociation->id_asociacion}"selected>{$asociation->asociacion}</option>
                            {/foreach}
                         </select>
             </div>

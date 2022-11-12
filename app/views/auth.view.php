@@ -12,8 +12,9 @@ class AuthView {
         $this->smarty->assign("error", $error);
         $this->smarty->display('login.tpl');
     }
-    public function showEditFormUmpire($id){
+    public function showEditFormUmpire($id, $asociations){
         $this->smarty->assign("id", $id);
+        $this->smarty->assign('asociations', $asociations);
         $this->smarty->display('formUmpire.tpl');
     }
     public function showEditFormAsociation($id){
