@@ -55,8 +55,8 @@ switch ($params[0]) {
         $umpireController->showEditFormUmpire($params[1]);
         break;
     case 'show':// mostrar arbitros con params 1 funciona pero hay que chequearlo bien
-        $umpireController = new UmpireController();;
-        $umpireController -> getUmpiresByAsoc($params[1]);
+        $asociationController = new AsociationController();
+        $asociationController->showByAsociation($params[1]);
         break;
     case 'list-asociations':
         $asociationController = new AsociationController();
@@ -78,7 +78,7 @@ switch ($params[0]) {
         break;
     case 'show-edit-asociation':
         $asociationController = new AsociationController();
-        $asociationController->showEditFormTeam($params[1]);
+        $asociationController->showEditFormAsociation($params[1]);
         break;
     default:
         echo('404 Page not found');

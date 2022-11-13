@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 <div class="central-text">
-<p class="central-text">Estos son los arbitros y equipos participantes del torneo</p>
-<p class="central-text">Haga click en cada uno para ver con mas detalle </p>
+<p class="central-text mt-5">Estos son los arbitros y asociaciones disponibles</p>
+
 </div>
 <!-- lista de arbitros -->
 <div class="list-total">

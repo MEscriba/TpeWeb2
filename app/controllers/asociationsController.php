@@ -48,9 +48,9 @@ class AsociationController {
     }
     
         
-    public function showEditFormTeam($id){
+    public function showEditFormAsociation($id){
         $this->helper->checkLoggedIn();
-        $this->authview->showEditFormTeam($id);
+        $this->authview->showEditFormAsociation($id);
     }
 
     public function EditAsociation($id){
@@ -61,8 +61,17 @@ class AsociationController {
             $this->model_asociation->editAsociation($asociacion, $region, $id);
             header("Location: " . BASE_URL . "list-asociations"); 
         }   
+    }
+    function showByAsociation($id){
+        
+        $umpires= $this->model_umpire->getUmpiresByAsoc($id);
+        $asociation= $this->model_asociation->getOne($id);
+        $asociations = $this->model_asociation->getAllAsociations();
+        
+        $this->view->showUmpiresByAsoc($umpires,$asociation, $asociations);
+        
+    }
     
-}
 }
 
     

@@ -31,7 +31,7 @@ class GeneralView {
         $this->smarty->display('umpires.tpl');
                 
     }
-    function showUmpire($umpires, $asociations)
+    function showUmpire($umpires, $asociations)///aun no esta en uso esta funcion....
     {
         $this->smarty->assign('asociations', $asociations);
         $this->smarty->assign('umpires', $umpires); //esto es para el select del form 
@@ -39,9 +39,11 @@ class GeneralView {
         $this->smarty->display('itemUmpire.tpl');
     }
     
-    public function showUmpireByAsoc($umpires){
+    public function showUmpiresByAsoc($umpires, $asociation, $asociations){
         $this->smarty->assign('umpires', $umpires);
-        $this->smarty->display('umpires.tpl');
+        $this->smarty->assign('asociation', $asociation);
+        $this->smarty->assign('asociations', $asociations);
+        $this->smarty->display('umpireByAsociation.tpl');
     }
     function showError($error)
     {

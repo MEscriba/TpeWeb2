@@ -21,13 +21,13 @@
                         <select name="id_asociacion"class="form-select" aria-label="Disabled select example">            
                            {foreach from=$asociations item=$asociation}
                               <option value="{$asociation->id_asociacion}" selected>{$asociation->asociacion}</option>
+                              
                            {/foreach}
                         </select>
             </div>
         </div>
     </div>
     <button type="submit" class="btn btn-primary mt-2 mb-2">Agregar</button>
-</form>
 
 <!-- lista de arbitros -->
 <ul class="list-group">

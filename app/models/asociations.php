@@ -16,13 +16,20 @@ class AsociationModel {
         // ya esta abierta por el constructor de la clase
 
         // 2. ejecuto la sentencia (2 subpasos)
-        $query = $this->db->prepare("SELECT * FROM asociaciones");
+        $query = $this->db->prepare("SELECT * FROM asociaciones ORDER BY asociacion ASC");
         $query->execute();
 
         // 3. obtengo los resultados
         $asociations = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
         
         return $asociations;
+    }
+    function getOne($id){
+        $query = $this->db->prepare('SELECT * FROM asociaciones WHERE id_asociacion = ?');
+        $query-> execute([$id]);
+    
+        $asociation = $query->fetch(PDO::FETCH_OBJ);
+        return $asociation;
     }
     /**
      * Inserta una equipo en la base de datos.

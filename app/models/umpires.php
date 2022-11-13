@@ -14,7 +14,7 @@ class UmpireModel {
         // ya esta abierta por el constructor de la clase
 
         // 2. ejecuto la sentencia (2 subpasos)
-        $query = $this->db->prepare("SELECT * FROM arbitros");
+        $query = $this->db->prepare("SELECT * FROM arbitros ORDER BY arbitro ASC");
         $query->execute();
 
         // 3. obtengo los resultados
@@ -22,20 +22,28 @@ class UmpireModel {
         
         return $umpires;
     }
-    function getUmpiresByAsoc()
+    
+    function getOne($id){
+        $query=$this->db->prepare('SELECT * FROM arbitros JOIN asociaciones ON arbitros.id_asociacion_fk = asociaciones.id_asociacion WHERE id=?');
+        $query->execute([$id]);
+        $umpire=$query->fetch(PDO::FETCH_OBJ);
+        return $umpire;
+    }
+    
+    function getUmpiresByAsoc($id)
     {
         //pido todos los arbitros de determinada asociacion ver si esta bien?
-        $query = $this->db->prepare("SELECT * FROM arbitros JOIN asociaciones ON arbitros.id_asociacion = asociaciones.id_asociacion");
-        $query->execute();
+        $query = $this->db->prepare("SELECT * FROM arbitros WHERE id_asociacion_fk=? ORDER BY arbitro ASC");
+        $query->execute([$id]);
 
-        $umpires = $query->fetch(PDO::FETCH_OBJ);
+        $umpires = $query->fetchAll(PDO::FETCH_OBJ);
         return $umpires;
     }
     /**
      * Inserta el arbitro en la base de datos.
      */
     public function insertUmpire($arbitro, $residencia, $id_asociacion) {
-        $query = $this->db->prepare("INSERT INTO arbitros (arbitro, residencia, id_asociacion) VALUES (?, ?, ?)");
+        $query = $this->db->prepare("INSERT INTO arbitros (arbitro, residencia, id_asociacion_fk) VALUES (?, ?, ?)");
         $query->execute([$arbitro,$residencia ,$id_asociacion]);
 
         return $this->db->lastInsertId();
@@ -50,7 +58,7 @@ class UmpireModel {
     }
     
     public function editUmpire($arbitro,$residencia,$id_asociacion,$id){
-        $query = $this->db->prepare("UPDATE arbitros SET arbitro=?, residencia=?, id_asociacion=? WHERE id=?");
+        $query = $this->db->prepare("UPDATE arbitros SET arbitro=?, residencia=?, id_asociacion_fk=? WHERE id=?");
         $query->execute([$arbitro,$residencia,$id_asociacion,$id]);
         $umpires = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
         

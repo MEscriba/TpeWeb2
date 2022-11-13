@@ -72,19 +72,5 @@ class UmpireController {
             header("Location: " . BASE_URL . "list-umpires"); 
         }      
     }
-    //ver si esto esta ok?
-    public function getUmpiresByAsoc($asociacion){
-        $umpires = $this->model_umpire->getUmpiresByAsoc($asociacion);
-        $this->view->getUmpiresByAsoc($umpires); 
-    } 
-   
+    
 }
-   /* veri si se necesita o esta bien-----------------------------
-    public function showUmpirebyId($id)
-    {
-        $this->helper->checkLoggedIn();
-        $umpires = $this->model_umpire->getUmpire($id);
-        $asociations = $this->model_asociation->getAllAsociations();
-
-        $this->view->showUmpire($umpires, $asociations);
-    } */

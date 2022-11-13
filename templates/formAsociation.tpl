@@ -17,4 +17,16 @@
     <button type="submit" class="btn btn-primary mb-5">Editar Asociacion</button>
     </form>
   
-    {include file="footer.tpl"}
+{* LUEGO QUIERO PONER EL DETALLE DE LOS ARBITROS ABAJO DEL FORM DE EDITAR
+ <ul class="list-group">
+    {foreach from=$asociations item=$asociation}
+        <li class='list-group-item d-flex justify-content-between align-items-center'>
+            <span> {$asociation->asociacion} - {$asociation->region} </span>
+            <div>
+                <a href='show-edit-asociation/{$asociation->id_asociacion}' type='button' class='btn btn-secondary'>Editar</a>
+                <a href='delete-asociation/{$asociation->id_asociacion}' type='button' class='btn btn-danger'>Borrar</a>
+            </div> 
+        </li>
+    {/foreach}     
+</ul>   *}
+  {include file="footer.tpl"}

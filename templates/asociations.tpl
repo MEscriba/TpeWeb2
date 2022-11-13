@@ -29,14 +29,14 @@
         <li class='list-group-item d-flex justify-content-between align-items-center'>
             <span> {$asociation->asociacion} - {$asociation->region} </span>
             <div>
-                <a href='show-umpires-by-asoc/{$asociation->id_asociacion}' type='button' class='btn btn-secondary'>ver</a>
+                <a href="show/{$asociation->id_asociacion}"type='button' class='btn btn-success'>ver arbitros disponibles</a>
                 <a href='show-edit-asociation/{$asociation->id_asociacion}' type='button' class='btn btn-secondary'>Editar</a>
                 <a href='delete-asociation/{$asociation->id_asociacion}' type='button' class='btn btn-danger'>Borrar</a>
             </div> 
         </li>
     {/foreach}     
 </ul>
-
 <p class="mt-3"><small>Mostrando asociaciones disponibles </small></p>
+
 
 {include file="footer.tpl"}
