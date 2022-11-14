@@ -30,8 +30,10 @@
             <span> {$asociation->asociacion} - {$asociation->region} </span>
             <div>
                 <a href="show/{$asociation->id_asociacion}"type='button' class='btn btn-success'>ver arbitros disponibles</a>
+                {if $logged}
                 <a href='show-edit-asociation/{$asociation->id_asociacion}' type='button' class='btn btn-secondary'>Editar</a>
                 <a href='delete-asociation/{$asociation->id_asociacion}' type='button' class='btn btn-danger'>Borrar</a>
+                {/if}
             </div> 
         </li>
     {/foreach}     

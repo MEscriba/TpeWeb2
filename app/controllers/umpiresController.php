@@ -23,19 +23,21 @@ class UmpireController {
     public function showComplete() {
         $umpires = $this->model_umpire->getAllUmpires();
         $asociations = $this->model_asociation->getAllAsociations();
-        $this->view->showComplete($umpires, $asociations);
+        $logged= $this->helper->isLogged();
+        $this->view->showComplete($umpires, $asociations,$logged);
     }
 
     function showUmpires() {
+        $logged= $this->helper->isLogged();
         $umpires = $this->model_umpire->getAllUmpires();
         $asociations = $this ->model_asociation->getAllAsociations();
-        $this->view->showUmpires($umpires, $asociations);
+        $this->view->showUmpires($umpires, $asociations, $logged);
     }
    
     public function showEditFormUmpire($id){
-        $this->helper->checkLoggedIn();
+        $logged= $this->helper->isLogged();
         $asociations = $this ->model_asociation->getAllAsociations();//ahi traje el parametro de las asociaciones para que me figuren en el selec
-        $this->authview->showEditFormUmpire($id, $asociations); //del form de editar 
+        $this->authview->showEditFormUmpire($id, $asociations, $logged); //del form de editar 
      }
 
     function addUmpire() {

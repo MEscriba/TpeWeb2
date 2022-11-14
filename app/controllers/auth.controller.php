@@ -19,9 +19,11 @@ class AuthController {
     }
 
     public function showFormLogin() {
-        $this->view->showFormLogin();
+        $logged = $this->helper->isLogged();
+        $this->view->showFormLogin($logged);
     }
 
+    
     public function validateUser() {
        
         // toma los datos del form

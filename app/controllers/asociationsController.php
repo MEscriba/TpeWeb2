@@ -23,7 +23,8 @@ class AsociationController {
         
     function showasociations() {
         $asociations = $this->model_asociation->getAllAsociations();
-        $this->view->showAsociations($asociations);
+        $logged= $this->helper->isLogged();
+        $this->view->showAsociations($asociations, $logged);
     }
      
               
@@ -49,8 +50,8 @@ class AsociationController {
     
         
     public function showEditFormAsociation($id){
-        $this->helper->checkLoggedIn();
-        $this->authview->showEditFormAsociation($id);
+        $logged= $this->helper->isLogged();
+        $this->authview->showEditFormAsociation($id, $logged);
     }
 
     public function EditAsociation($id){

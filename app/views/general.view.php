@@ -8,23 +8,26 @@ class GeneralView {
         $this->smarty = new Smarty(); // inicializo Smarty
     }
 
-    public function showComplete($umpires, $asociations) {
+    public function showComplete($umpires, $asociations, $logged) {
         // asigno variables al tpl smarty
+        $this->smarty->assign('logged', $logged);
         $this->smarty->assign('umpires', $umpires); 
         $this->smarty->assign('asociations', $asociations); 
         // mostrar el tpl
         $this->smarty->display('home.tpl');
                 
     }
-    public function showAsociations($asociations) {
+    public function showAsociations($asociations, $logged) {
         // asigno variables al tpl smarty
+        $this->smarty->assign('logged', $logged);
         $this->smarty->assign('asociations', $asociations); 
         // mostrar el tpl
         $this->smarty->display('asociations.tpl');
                 
     }
-    public function showUmpires($umpires, $asociations) {
+    public function showUmpires($umpires, $asociations, $logged) {
         // asigno variables al tpl smarty
+        $this->smarty->assign('logged', $logged);
         $this->smarty->assign('umpires', $umpires);  
         $this->smarty->assign('asociations', $asociations);
         // mostrar el tpl

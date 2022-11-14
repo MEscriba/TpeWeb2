@@ -31,13 +31,13 @@
                   <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="list-asociations">Asociaciones</a>
                   </li>
-                  {if !isset($smarty.session.USER_ID)}
+                  {if $logged}
                     <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="login">Ingresar</a>
+                      <a class="nav-link" aria-current="page" href="logout">Cerrar Sesion ({$smarty.session.USER_EMAIL})</a>
                     </li>
                   {else}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="logout">Cerrar Sesion ({$smarty.session.USER_EMAIL})</a>
+                      <a class="nav-link" aria-current="page" href="login">Ingresar</a>    
                     </li>
                   {/if} 
                   

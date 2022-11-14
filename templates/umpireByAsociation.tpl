@@ -10,10 +10,12 @@
             {if $umpire->id_asociacion_fk == $asociation->id_asociacion}
                 <li class='list-group-item d-flex justify-content-between align-items-center'>
                     <span> <b>{$umpire->arbitro} </b> pertenece a: {$asociation->asociacion} - region: {$asociation->region} -reside en: {$umpire->residencia}</span>
+                    {if $logged}
                         <div>
                             <a href='show-edit-asociation/{$asociation->id_asociacion}' type='button' class='btn btn-secondary'>Editar</a>
                             <a href='delete-asociation/{$asociation->id_asociacion}' type='button' class='btn btn-danger'>Borrar</a>
                         </div> 
+                    {/if}    
                 </li>
             {/if}
         {/foreach} 

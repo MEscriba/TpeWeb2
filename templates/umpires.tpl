@@ -34,10 +34,12 @@
     {foreach from=$umpires item=$umpire}
         <li class='list-group-item d-flex justify-content-between align-items-center'>
             <span> <b>{$umpire->arbitro}</b> -reside en: {$umpire->residencia} </span>
+            {if $logged}
             <div>
                 <a href='show-edit-umpire/{$umpire->id}' type='button' class='btn btn-secondary'>Editar</a>
                 <a href='delete/{$umpire->id}' type='button' class='btn btn-danger'>Borrar</a>
             </div>
+            {/if}
         </li>
     {/foreach}
 </ul>
