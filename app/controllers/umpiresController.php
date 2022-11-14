@@ -36,8 +36,9 @@ class UmpireController {
    
     public function showEditFormUmpire($id){
         $logged= $this->helper->isLogged();
+        $umpire = $this->model_umpire->getOne($id);
         $asociations = $this ->model_asociation->getAllAsociations();//ahi traje el parametro de las asociaciones para que me figuren en el selec
-        $this->authview->showEditFormUmpire($id, $asociations, $logged); //del form de editar 
+        $this->authview->showEditFormUmpire($id, $asociations, $logged, $umpire) ; //del form de editar 
      }
 
     function addUmpire() {

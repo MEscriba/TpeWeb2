@@ -2,7 +2,7 @@
 
     
 <!-- lista de arbitros por asociacion (detalle de item por categoria) -->
-<h3>vista de arbitros segun la asociacion {$asociation->asociacion}</h3>
+<h3>Lista de arbitros de la {$asociation->asociacion}</h3>
 
 <ul class="list-group">
     {foreach from=$umpires item=$umpire}

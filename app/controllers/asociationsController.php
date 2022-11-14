@@ -51,7 +51,8 @@ class AsociationController {
         
     public function showEditFormAsociation($id){
         $logged= $this->helper->isLogged();
-        $this->authview->showEditFormAsociation($id, $logged);
+        $asociation= $this->model_asociation->getOne($id);
+        $this->authview->showEditFormAsociation($id, $logged, $asociation);
     }
 
     public function EditAsociation($id){

@@ -28,7 +28,12 @@
     </div>
     <button type="submit" class="btn btn-primary mt-2 mb-2">Editar</button>
 </form>
-
+<ul class="list-group">
+    
+        <li class='list-group-item d-flex justify-content-between align-items-center'>
+           <span> <b>Arbitro a editar:</b> {$umpire->arbitro} -  <b>Reside en:</b> {$umpire->residencia} - <b>Pertenece a la asociacion:</b> {$asociation->asociacion}</span>
+        </li>       
+</ul>   
    
 {include file="footer.tpl"}
 
