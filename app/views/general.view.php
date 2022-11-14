@@ -42,10 +42,11 @@ class GeneralView {
         $this->smarty->display('itemUmpire.tpl');
     }
     
-    public function showUmpiresByAsoc($umpires, $asociation, $asociations){
+    public function showUmpiresByAsoc($umpires, $asociation, $asociations, $logged){
         $this->smarty->assign('umpires', $umpires);
         $this->smarty->assign('asociation', $asociation);
         $this->smarty->assign('asociations', $asociations);
+        $this->smarty->assign('logged', $logged);
         $this->smarty->display('umpireByAsociation.tpl');
     }
     function showError($error)

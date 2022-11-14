@@ -68,8 +68,8 @@ class AsociationController {
         $umpires= $this->model_umpire->getUmpiresByAsoc($id);
         $asociation= $this->model_asociation->getOne($id);
         $asociations = $this->model_asociation->getAllAsociations();
-        
-        $this->view->showUmpiresByAsoc($umpires,$asociation, $asociations);
+        $logged= $this->helper->isLogged();
+        $this->view->showUmpiresByAsoc($umpires,$asociation, $asociations, $logged);
         
     }
     
