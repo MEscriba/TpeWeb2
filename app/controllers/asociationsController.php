@@ -34,7 +34,7 @@ class AsociationController {
         $asociacion = $_POST['asociacion'];
         $region = $_POST['region'];
         if (empty($asociacion) || empty($region)) {
-            $this->view->showError(array("Hay campos vacios.", "Por favor complete los campos obligatorios para poder agregarlo.",  "list-asociations"));
+            $this->view->showError(array("Hay campos vacios.", "Por favor complete los campos obligatorios para poder agregarlo.", 'list-asociations'));
             die();
         }
 
@@ -44,10 +44,16 @@ class AsociationController {
     
     function deleteAsociation($id) {
         $this->helper->checkLoggedIn();
+        try {
         $this->model_asociation->deleteAsociationById($id);
         header("Location: " . BASE_URL . "list-asociations");
+        }catch (PDOException $e){
+        $this->view->showerror(array("No se puede eliminar esta asociacion", "porque hay arbitros que pertenecen a la misma", 'list-asociations'));
+       } 
+            
+       
+        
     }
-    
         
     public function showEditFormAsociation($id){
         $logged= $this->helper->isLogged();

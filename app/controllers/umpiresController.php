@@ -48,7 +48,7 @@ class UmpireController {
         $residencia = $_POST['residencia'];
         $id_asociacion = $_POST['id_asociacion'];
         if (empty($arbitro) || empty($residencia) || empty($id_asociacion)) {
-            $this->view->showError(array("Hay campos vacios.", "Por favor complete los campos obligatorios para poder agregarlo.",  "showUmpires"));
+            $this->view->showError(array("Hay campos vacios.", "Por favor complete los campos obligatorios para poder agregarlo.",  'showUmpires'));
             die();
         }
 
