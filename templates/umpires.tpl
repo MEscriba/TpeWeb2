@@ -31,9 +31,12 @@
 
 <!-- lista de arbitros -->
 <ul class="list-group">
+{foreach from=$asociations item=$asociation}   
     {foreach from=$umpires item=$umpire}
+        {if $umpire->id_asociacion_fk==$asociation->id_asociacion}
         <li class='list-group-item d-flex justify-content-between align-items-center'>
-            <span> <b>{$umpire->arbitro}</b> -reside en: {$umpire->residencia} </span>
+            <span><b>{$umpire->arbitro}</b> -reside en: <b>{$umpire->residencia}</b> -pertenece a: <b>{$asociation->asociacion}</b>
+             de la region: <b>{$asociation->region}</b></span>
             {if $logged}
             <div>
                 <a href='show-edit-umpire/{$umpire->id}' type='button' class='btn btn-secondary'>Editar</a>
@@ -41,6 +44,8 @@
             </div>
             {/if}
         </li>
+    {/if}
     {/foreach}
+{/foreach}
 </ul>
-<p class="mt-3"><small>Mostrando arbitros disponibles </small></p>
+<p class="mt-3"><small>Mostrando todos los arbitros disponibles </small></p>
