@@ -5,3 +5,6 @@
     justify-content: space-evenly;
 };
 
+.img-thumbnail {
+    height: 100px;
+}

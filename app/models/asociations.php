@@ -34,14 +34,23 @@ class AsociationModel {
     /**
      * Inserta una equipo en la base de datos.
      */
-    public function insertAsociation($asociacion, $region) {
+    public function insertAsociation($asociacion, $region, $image=null) {
+        $pathImg = null;
+        $pathImg='images/logo_confe.jpg';
+        if ($image)
+            $pathImg = $this->uploadImage($image);
        
-        $query = $this->db->prepare("INSERT INTO asociaciones (asociacion, region) VALUES (?, ?)");
-        $query->execute([$asociacion, $region]);
+        $query = $this->db->prepare("INSERT INTO asociaciones (`asociacion`, `region`, `image`) VALUES (?, ?, ?)");
+        $query->execute([$asociacion, $region,$pathImg]);
 
         return $this->db->lastInsertId();
     }
- 
+    private function uploadImage($image){
+        $target = 'images/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
+        return $target;
+    }
+
     /**
      * Elimina un equipo dado su id.
      */
@@ -50,13 +59,20 @@ class AsociationModel {
         $query->execute([$id]);
     }
 
-    public function editAsociation($asociacion,$region,$id){
-        $query = $this->db->prepare("UPDATE asociaciones SET asociacion=?, region=? WHERE id_asociacion=?");
-        $query->execute([$asociacion,$region,$id]);
+    public function editAsociation($asociacion,$region,$item, $id, $image=null){
+        $pathImg = null;
+        if ($image)
+            $pathImg = $this->uploadImage($image);
+        else{
+            $pathImg=$item;
+        }
+        $query = $this->db->prepare("UPDATE asociaciones SET `asociacion`=?, `region`=? , `image`=? WHERE id_asociacion=?");
+        $query->execute([$asociacion,$region,$pathImg, $id]);
         $asociations = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
         
         return $asociations;
     }
+   
     
 }
 

@@ -37,11 +37,21 @@ class AsociationController {
             $this->view->showError(array("Hay campos vacios.", "Por favor complete los campos obligatorios para poder agregarlo.", 'list-asociations'));
             die();
         }
+        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" 
+        || $_FILES['input_name']['type'] == "image/png" ) {
 
-        $id = $this->model_asociation->insertAsociation($asociacion, $region);
+            $id = $this->model_asociation->insertAsociation($asociacion, $region, $_FILES['input_name']['tmp_name']);
+        }
+        else {
+            $id = $this->model_asociation->insertAsociation($asociacion, $region);
+        }
+        
         header("Location: " . BASE_URL . "list-asociations"); 
     }
     
+  
+
+
     function deleteAsociation($id) {
         $this->helper->checkLoggedIn();
         try {
@@ -65,10 +75,27 @@ class AsociationController {
         if ((!empty($_POST))) {
             $asociacion = $_POST['asociacion'];
             $region = $_POST['region'];
-            $this->model_asociation->editAsociation($asociacion, $region, $id);
+        }
+            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" 
+            || $_FILES['input_name']['type'] == "image/png" ) {
+    
+                $item='';
+                $this->model_asociation->editAsociation($asociacion, $region, $id, $item, $_FILES['input_name']['tmp_name']);
+            }
+            else {
+                $item='';
+                $asociations = $this->model_asociation->getAllAsociations();
+                foreach($asociations as $asociation){
+                    if($asociation->id==$id)
+                        $item=$asociation->image;
+                }
+                $this->model_asociation->editAsociation($asociacion, $region, $id, $item);
+            
             header("Location: " . BASE_URL . "list-asociations"); 
         }   
-    }
+    } 
+    
+    
     function showByAsociation($id){
         
         $umpires= $this->model_umpire->getUmpiresByAsoc($id);

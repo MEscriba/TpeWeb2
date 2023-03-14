@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 
-<form action='edit-asociation/{$id}'method="POST">
+<form action='edit-asociation/{$id}'method="POST" enctype="multipart/form-data">
 <div class="row">
     <div class="col">
   
@@ -13,6 +13,12 @@
             <input name="region" class="form-control" id="exampleFormControlTextarea1" rows="3" value=""></input>
         </div>
     </div>
+    <div class="col-3">
+            <div class="form-group">
+                <label>Logo Asociacion</label>  
+                <input name="image" type="file" class="form-control">
+            </div>
+        </div>  
    
     <button type="submit" class="btn btn-primary mb-5">Editar Asociacion</button>
     </form>
