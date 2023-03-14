@@ -27,8 +27,9 @@
             </div>
         </div>
     </div>
+    {if $logged}
     <button type="submit" class="btn btn-primary mt-2 mb-2">Agregar</button>
-
+    {/if}
 <!-- lista de arbitros -->
 <ul class="list-group">
 {foreach from=$asociations item=$asociation}   

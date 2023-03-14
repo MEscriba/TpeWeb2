@@ -26,9 +26,9 @@
         </div>  
     -->
     </div>
-   
+   {if $logged}
     <button type="submit" class="btn btn-primary mt-2">Agregar</button>
-   
+   {/if}
 </form>
 <!-- lista de equipos -->
 
