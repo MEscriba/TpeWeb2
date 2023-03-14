@@ -49,13 +49,12 @@ class AsociationController {
         header("Location: " . BASE_URL . "list-asociations");
         }catch (PDOException $e){
         $this->view->showerror(array("No se puede eliminar esta asociacion", "porque hay arbitros que pertenecen a la misma", 'list-asociations'));
-       } 
-            
-       
+       }      
         
     }
         
     public function showEditFormAsociation($id){
+        $this->helper->checkLoggedIn();
         $logged= $this->helper->isLogged();
         $asociation= $this->model_asociation->getOne($id);
         $this->authview->showEditFormAsociation($id, $logged, $asociation);

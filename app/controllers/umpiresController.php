@@ -35,6 +35,8 @@ class UmpireController {
     }
    
     public function showEditFormUmpire($id){
+        
+        $this->helper->checkLoggedIn();
         $logged= $this->helper->isLogged();
         $umpire = $this->model_umpire->getOne($id);
         $asociations = $this ->model_asociation->getAllAsociations();//ahi traje el parametro de las asociaciones para que me figuren en el selec
