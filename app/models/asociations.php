@@ -35,12 +35,13 @@ class AsociationModel {
      * Inserta una equipo en la base de datos.
      */
     public function insertAsociation($asociacion, $region) {
+       
         $query = $this->db->prepare("INSERT INTO asociaciones (asociacion, region) VALUES (?, ?)");
         $query->execute([$asociacion, $region]);
 
         return $this->db->lastInsertId();
     }
-
+ 
     /**
      * Elimina un equipo dado su id.
      */

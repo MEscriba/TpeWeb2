@@ -12,15 +12,14 @@ class AuthHelper {
             header("Location: " . BASE_URL . 'login');
             die();
         }
+        
     } 
     
     function isLogged(){
-        //session_start();
-        if(!isset( $_SESSION['IS_LOGGED'])){
-            return false;
-        } else {
-            return true;
+        if (session_status() != PHP_SESSION_ACTIVE){
+            session_start();
         }
-    }  
+        return isset($_SESSION['IS_LOGGED']);
+    }   
 }
 

@@ -17,10 +17,18 @@
                 <input name="region" type="text" class="form-control">
             </div>
         </div>
+     <!--    este divisor para cuando agregue imagen
+        <div class="col-3">
+            <div class="form-group">
+                <label>Logo Asociacion</label>  
+                <input name="image" type="file" class="form-control">
+            </div>
+        </div>  
+    -->
     </div>
-    
+   
     <button type="submit" class="btn btn-primary mt-2">Agregar</button>
-
+   
 </form>
 <!-- lista de equipos -->
 
